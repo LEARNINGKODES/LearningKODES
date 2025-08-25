@@ -1,0 +1,206 @@
+body {
+  font-family: 'Baloo 2', cursive; 
+  background: #0F3FA6;
+  color: #000;
+  transition: background 0.3s, color 0.3s;
+}
+
+
+.tema-oscuro {
+  background: #121212;
+  color: #fff;
+}
+.tema-oscuro .barra-navegacion,
+.tema-oscuro footer {
+  background: #1f1f1f;
+  color: #90caf9;
+}
+.tema-oscuro .seccion,
+.tema-oscuro .seccion-juego,
+.tema-oscuro .seccion-videos {
+  background: #2a2a2a;
+}
+
+.barra-navegacion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #2196f3;
+  padding: 15px 20px;
+  border-bottom: 4px solid #1976d2;
+  position: relative;
+  z-index: 10;
+}
+/*logo*/
+.logo {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 20px;
+  box-shadow: 0 0 12px rgba(5, 45, 119, 0.959);
+  transition: transform 0.1s;
+  position: absolute;
+  top: 40%;
+  left: 60%;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.barra h1 {
+  font-size: 30px;
+  color:#235FDB;
+}
+
+.enlaces-nav a {
+  margin: 0 10px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+.enlaces-nav a:hover {
+  text-decoration: underline;
+}
+/* MENU TEMA */
+.menu {
+  position: relative;
+  z-index: 1;
+}
+.menu button {
+  font-size: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #fff;
+}
+.menu-tema {
+  display: none;
+  position: absolute;
+  right: 10px;
+  top: 50px;
+  background: #7c7a7a; /* Blanco */
+  border: 2px  #ffffff;
+  border-radius: 8px;
+  z-index: 1000;
+}
+.menu-tema.visible {
+  display: block;
+}
+.menu-tema button {
+  display: block;
+  background: none;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* CARRUSEL */
+.splide.pantalla-completa {
+  max-height: 400px;
+  max-width: 600px;
+  margin: 20px auto;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 0 10px #0F3FA6;
+  position: relative;
+  z-index: 1;
+  position: relative;
+  top: 10%;
+  left: -13%;
+}
+
+.splide__slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* CONTENIDO */
+.contenido {
+  padding: 20px;
+  max-width: 960px;
+  text-shadow: 0 0 20px #0F3FA6;
+  box-shadow: 0  0 10px #0F3FA6;
+  margin: auto;
+}
+
+.seccion,
+.seccion-juego,
+.seccion-videos {
+  background: #ffffff; /* Blanco */
+  margin: 20px 0;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 2px 4px 12px rgba(0,0,0,0.1);
+}
+
+.seccion h2 {
+  color: #1976d2; /* Azul más oscuro */
+  margin-bottom: 10px;
+}
+
+ul {
+  margin-left: 20px;
+}
+ul li {
+  margin-bottom: 8px;
+}
+
+.color-azul .cuadrado {
+  background: #2196f3;
+}
+.color-blanco .cuadrado {
+  background: #fff;
+  border: 1px solid #ccc;
+}
+.color-negro .cuadrado {
+  background: #000;
+}
+
+.color-azul,
+.color-blanco,
+.color-negro {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.cuadrado {
+  width: 25px;
+  height: 25px;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+.video-principal iframe,
+.video-secundario iframe {
+  width: 100%;
+  height: 250px;
+  border-radius: 10px;
+  border: none;
+}
+
+footer {
+  background: #2196f3; /* Azul */
+  color: #ffffff; /* Blanco */
+  text-align: center;
+  padding: 15px;
+  border-top: 3px solid #1976d2;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .barra-navegacion {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .enlaces-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
