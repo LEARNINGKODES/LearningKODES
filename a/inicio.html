@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Learning Kodes</title>
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="estilo.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Chewy&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.3/dist/css/splide.min.css" />
+</head>
+<body class="tema-oscuro">
+
+  <!-- BARRA DE NAVEGACIÓN -->
+  <div class="barra-navegacion">
+    <!--loggo-->
+    <div class="barra">
+      <img src="./img/Logotipo.png" class="logo" />
+      <h1>LEARNING KODES</h1>
+    </div>
+
+
+    <div class="enlaces-nav">
+      <a href="#quienes-somos">Quiénes somos</a>
+      <a href="#objetivos">Objetivos</a>
+      <a href="#colores">Colores</a>
+      <a href="juego.html">Juego</a>
+      <a href="#videos">Videos</a>
+    </div>
+    <div class="menu">
+      <button onclick="alternarMenuTema()">⋮</button>
+      <div id="menu-tema" class="menu-tema">
+        <button onclick="cambiarTema('oscuro')">Oscuro</button>
+        <button onclick="cambiarTema('claro')">Claro</button>
+      </div> 
+    </div>
+  </div>
+
+  <!-- CARRUSEL -->
+  <div class="splide pantalla-completa" aria-label="Slides">
+    <div class="splide__track">
+      <ul class="splide__list">
+        <li class="splide__slide"><img src="./img/SLIDE13.jpg" /></li>
+        <li class="splide__slide"><img src="./img/SLIDE12.jpg" /></li>
+        <li class="splide__slide"><img src="./img/SLIDE14.jpg" /></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- CONTENIDO -->
+  <div class="contenido">
+
+    <section id="intro" class="seccion">
+      <h2>Introducción</h2>
+      <p>
+        Learning Kodes busca fomentar el aprendizaje de la programación en niños de primaria (5 a 10 años),
+        demostrando, enseñando, replanteando y asegurando el futuro a nivel mundial, teniendo en cuenta que hoy en día se habla mucho más de tecnología, prácticamente indicando el rumbo del futuro.
+      </p>
+    </section>
+
+    <section id="objetivos" class="seccion">
+      <h2>Objetivos</h2>
+      <ul>
+        <li>Promover el pensamiento lógico desde pequeños. Esto les ayudará a desarrollar habilidades que les faciliten la vida en diversas circunstancias.</li>
+        <li>Fomentar el uso educativo de la tecnología. Aunque los niños están expuestos a ella, no siempre la usan con fines formativos.</li>
+        <li>Introducir conceptos de programación de forma divertida. A los niños les atrae lo lúdico, por eso incluimos juegos para enseñar lógica y pensamiento computacional.</li>
+      </ul>
+    </section>
+
+    <section id="colores" class="seccion">
+      <h2>Teoría del Color</h2>
+      <div class="color-azul">
+        <div class="cuadrado"></div>
+        <p><strong>Azul:</strong> Comunicación, eficiencia, lógica.</p>
+      </div>
+      <div class="color-blanco">
+        <div class="cuadrado"></div>
+        <p><strong>Blanco:</strong> Pureza, claridad.</p>
+      </div>
+      <div class="color-negro">
+        <div class="cuadrado"></div>
+        <p><strong>Negro:</strong> Poder, elegancia.</p>
+      </div>
+    </section>
+
+    <section id="juego" class="seccion-juego">
+      <h2>Juego Interactivo</h2>
+      <p>
+        Nuestro proyecto integrará un juego diseñado para niños, con puzles que contienen elementos de programación y lógica. Así, aprenderán mientras juegan con retos breves, divertidos y adaptados a su edad.
+      </p>
+    </section>
+
+    <section id="videos" class="seccion-videos">
+      <h2>Videos de Learning Kodes</h2>
+      <div class="video-principal">
+        <iframe 
+          src="https://www.youtube.com/embed/NEUC0UV4SZ0?autoplay=1&mute=1&loop=1&playlist=NEUC0UV4SZ0"
+          allow="autoplay; encrypted-media" allowfullscreen>
+        </iframe>
+      </div>
+      <div class="video-secundario">
+        <iframe 
+          src="https://www.youtube.com/embed/uM3InKpXHWQ?autoplay=1&mute=1&loop=1&playlist=uM3InKpXHWQ"
+          allow="autoplay; encrypted-media" allowfullscreen>
+        </iframe>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- PIE DE PÁGINA -->
+  <footer>
+    <p>Proyecto creado por Jhon Luis Mejía y Fabián Steven Devia – Curso 1103</p>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.3/dist/js/splide.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      new Splide('.splide', {
+        type: 'loop',
+        perPage: 1,
+        autoplay: true,
+        interval: 3000,
+        pauseOnHover: true,
+      }).mount();
+    });
+
+    function alternarMenuTema() {
+      const menu = document.getElementById('menu-tema');
+      menu.classList.toggle('visible');
+    }
+
+    function cambiarTema(modo) {
+      const body = document.body;
+      if (modo === 'claro') {
+        body.classList.remove('tema-oscuro');
+        body.classList.add('tema-claro');
+      } else {
+        body.classList.remove('tema-claro');
+        body.classList.add('tema-oscuro');
+      }
+    }
+  </script>
+</body>
+</html>
+
+
+
+

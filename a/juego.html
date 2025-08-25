@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Learning Kodes - HTML & CSS</title>
+  <link rel="stylesheet" href="juego.css">
+</head>
+<body>
+
+<header class="barra-superior">
+  <h1><a href="inicio.html">.</a>LEARNING KODES</h1>
+  <p>Aprende HTML y CSS paso a paso con nuestra abeja guia 🐝</p>
+</header>
+
+<div id="explicacion" class="explicacion">
+  <img src="./img/Logotipo.png" class="abeja" alt="abeja guia">
+  <p id="explicacion-texto"></p>
+</div>
+
+<div class="zona-juego">
+  <div class="escenario" id="escenario">
+    <!-- Aquí se mostrarán las cajas HTML a seleccionar -->
+    <div><h1>Hola</h1></div>
+    <div><p>Esto es un parrafo</p></div>
+    <div><br>NIKOLL Y ANGIE MIS DULCE PRINCESAS 🌚</div>
+    <div><b>Texto importante</b></div>
+    <div><h3>©JLMN & FSDM STUDIOS</h3></div>
+  </div>
+
+  <div class="panel-control">
+    <label for="selector">Escribe el código HTML correspondiente:</label>
+    <input type="text" id="selector" placeholder="Ej: <h1>Hola</h1>">
+    <button onclick="verificarCodigo()">Verificar</button>
+    <p id="mensaje"></p>
+  </div>
+</div>
+
+<div class="controles">
+  <button onclick="nivelAnterior()">Anterior</button>
+  <button onclick="siguienteNivel()">Siguiente</button>
+</div>
+
+<!-- Botón final oculto hasta completar los 40 niveles -->
+<div class="controles" style="display:none;" id="fin-juego">
+  <p>¡Felicidades! Has terminado todos los niveles.</p>
+  <button onclick="location.href='inicio.html'">Volver al inicio</button>
+</div>
+
+<script>
+const nivelesHTML = [
+  {
+    instruccion: "Nivel 1: Crea un titulo con la etiqueta <h1>",
+    explicacion: "La etiqueta <h1> se usa para hacer titulos grandes. Se abre con <h1> y se cierra con </h1>.",
+    respuesta: "<h1>"
+  },
+  {
+    instruccion: "Nivel 2: Escribe un parrafo usando <p>",
+    explicacion: "La etiqueta <p> se usa para escribir parrafos. Se abre con <p> y se cierra con </p>.",
+    respuesta: "<p>"
+  },
+  {
+    instruccion: "Nivel 3: Usa un salto de linea con <br>",
+    explicacion: "La etiqueta <br> se usa para saltos de linea. No necesita etiqueta de cierre.",
+    respuesta: "<br>"
+  },
+  {
+    instruccion: "Nivel 4: Haz texto en negrita usando <b>",
+    explicacion: "La etiqueta <b> pone el texto en negrita. Se abre con <b> y se cierra con </b>.",
+    respuesta: "<b>"
+  },
+  {
+    instruccion: "Nivel 5: Haz texto en cursiva usando <i>",
+    explicacion: "La etiqueta <i> hace que el texto se vea inclinado. Se abre con <i> y se cierra con </i>.",
+    respuesta: "<i>"
+  }
+];
+
+let nivelActual = 0;
+
+function cargarNivel() {
+  const nivel = nivelesHTML[nivelActual];
+  document.getElementById("explicacion-texto").innerText = nivel.instruccion + " — " + nivel.explicacion;
+  document.getElementById("selector").value = "";
+  document.getElementById("mensaje").innerText = "";
+}
+
+function verificarCodigo() {
+  const entrada = document.getElementById("selector").value.toLowerCase().replace(/\s+/g, '');
+  const esperado = nivelesHTML[nivelActual].respuesta.toLowerCase().replace(/\s+/g, '');
+  if (entrada.includes(esperado)) {
+    document.getElementById("mensaje").innerText = " ¡Muy bien!";
+    document.getElementById("mensaje").style.color = "green";
+  } else {
+    document.getElementById("mensaje").innerText = " Intenta otra vez.";
+    document.getElementById("mensaje").style.color = "red";
+  }
+}
+
+function nivelAnterior() {
+  if (nivelActual > 0) {
+    nivelActual--;
+    cargarNivel();
+  }
+}
+
+function siguienteNivel() {
+  if (nivelActual < nivelesHTML.length - 1) {
+    nivelActual++;
+    cargarNivel();
+  } else {
+    document.querySelector('.zona-juego').style.display = 'none';
+    document.getElementById("fin-juego").style.display = 'block';
+    document.getElementById("explicacion").style.display = 'none';
+  }
+}
+
+window.onload = cargarNivel;
+</script>
+
+</body>
+</html>
